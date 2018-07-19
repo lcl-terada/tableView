@@ -14,6 +14,7 @@
 		E75086EE20FECAC800293EB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E75086EC20FECAC800293EB9 /* LaunchScreen.storyboard */; };
 		E75086F920FECAC800293EB9 /* tableviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75086F820FECAC800293EB9 /* tableviewTests.swift */; };
 		E750870420FECAC800293EB9 /* tableviewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E750870320FECAC800293EB9 /* tableviewUITests.swift */; };
+		E750871220FEE9E500293EB9 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E750871120FEE9E500293EB9 /* CustomCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		E75086FF20FECAC800293EB9 /* tableviewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tableviewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E750870320FECAC800293EB9 /* tableviewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableviewUITests.swift; sourceTree = "<group>"; };
 		E750870520FECAC800293EB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E750871120FEE9E500293EB9 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		E75086D720FECAC700293EB9 = {
 			isa = PBXGroup;
 			children = (
+				E750871120FEE9E500293EB9 /* CustomCell.swift */,
 				E75086E220FECAC700293EB9 /* tableview */,
 				E75086F720FECAC800293EB9 /* tableviewTests */,
 				E750870220FECAC800293EB9 /* tableviewUITests */,
@@ -257,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E75086E620FECAC700293EB9 /* ViewController.swift in Sources */,
+				E750871220FEE9E500293EB9 /* CustomCell.swift in Sources */,
 				E75086E420FECAC700293EB9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
