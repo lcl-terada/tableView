@@ -19,21 +19,22 @@ class CustomCell: UITableViewCell, UITextFieldDelegate {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        badgeView.backgroundColor = UIColor.brown
         //　背景色の設定
-        badgeView.translatesAutoresizingMaskIntoConstraints = false
-        // trueだとコンフリクトしてしまう
-        self.addSubview(badgeView)
-        // addSubviewは
-        
         badgeWrapperView.backgroundColor = UIColor.cyan
+        // trueだとコンフリクトしてしまう
         badgeWrapperView.translatesAutoresizingMaskIntoConstraints = false
+        // 自分自身に対してbadgeWrapperViewを追加する
         self.addSubview(badgeWrapperView)
-        
+
+        badgeView.backgroundColor = UIColor.brown
+        badgeView.translatesAutoresizingMaskIntoConstraints = false
+        //badgeWrapperViewに対してbadgeViewを追加する
+        badgeWrapperView.addSubview(badgeView)
+    
         thumbnailImageView.backgroundColor = UIColor.yellow
         thumbnailImageView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(thumbnailImageView)
-        
+
         titleLabel.backgroundColor = UIColor.green
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(titleLabel)
@@ -42,33 +43,32 @@ class CustomCell: UITableViewCell, UITextFieldDelegate {
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(dateLabel)
         
+        badgeWrapperView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        badgeWrapperView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10.0).isActive = true
+        badgeWrapperView.widthAnchor.constraint(equalToConstant: 25.0).isActive = true
+        badgeWrapperView.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
         
+        badgeView.centerXAnchor.constraint(equalTo: badgeWrapperView.centerXAnchor).isActive = true
+        badgeView.centerYAnchor.constraint(equalTo: badgeWrapperView.centerYAnchor).isActive = true
+        badgeView.widthAnchor.constraint(equalToConstant: 10.0).isActive = true
+        badgeView.heightAnchor.constraint(equalToConstant: 10.0).isActive = true
         
-        badgeView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10.0).isActive = true
-        badgeView.trailingAnchor.constraint(equalTo: thumbnailImageView.leadingAnchor, constant: 0.0).isActive = true
-        badgeView.widthAnchor.constraint(equalToConstant: 25.0).isActive = true
-        badgeView.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
-        badgeView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        
-//        thumbnailImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10.0).isActive = true
-        thumbnailImageView.trailingAnchor.constraint(equalTo: titleLabel.leadingAnchor, constant: 0.0).isActive = true
-        thumbnailImageView.trailingAnchor.constraint(equalTo: dateLabel.leadingAnchor, constant: 0.0).isActive = true
+        thumbnailImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        thumbnailImageView.leadingAnchor.constraint(equalTo: badgeWrapperView.leadingAnchor, constant: 30.0).isActive = true
         //equalToだとcell + 50.0になるが、equalToConstantだと50.0のみで表示される。
         thumbnailImageView.widthAnchor.constraint(equalToConstant: 50.0).isActive = true
         thumbnailImageView.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
-        thumbnailImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        
+
         titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10.0).isActive = true
-        //titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10.0).isActive = true
+        titleLabel.leadingAnchor.constraint(equalTo: thumbnailImageView.leadingAnchor, constant: 55.0).isActive = true
         titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10.0).isActive = true
         // この文を消すことによって一つのセルに２つの文が入る
 //        titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10.0).isActive = true
         titleLabel.numberOfLines = 0
         titleLabel.sizeToFit()
 
-        // ２つの文を一つのセルにいれるときは、上の文のbottomAnchorを消して、下の文のtopAnchorをtitleLabel.bottomAnchorとしていれる。
         dateLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 0.0).isActive = true
-        //dateLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10.0).isActive = true
+        dateLabel.leadingAnchor.constraint(equalTo: thumbnailImageView.leadingAnchor, constant: 55.0).isActive = true
         dateLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10.0).isActive = true
         dateLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0.0).isActive = true
         dateLabel.numberOfLines = 0
