@@ -17,13 +17,10 @@ class CustomCell: UITableViewCell, UITextFieldDelegate {
     let badgeWrapperView = UIView()
     let button = UIButton()
     var thumbnailImageViewSizeConstraint: NSLayoutConstraint!
-//    var titleLabelConstraint: NSLayoutConstraint!
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        //　背景色の設定
-//        badgeWrapperView.backgroundColor = UIColor.cyan
         // trueだとコンフリクトしてしまう
         badgeWrapperView.translatesAutoresizingMaskIntoConstraints = false
         // 自分自身に対してbadgeWrapperViewを追加する
@@ -31,19 +28,17 @@ class CustomCell: UITableViewCell, UITextFieldDelegate {
 
         badgeView.backgroundColor = UIColor.blue
         badgeView.translatesAutoresizingMaskIntoConstraints = false
-        //badgeWrapperViewに対してbadgeViewを追加する
+        // badgeWrapperViewに対してbadgeViewを追加する
         badgeWrapperView.addSubview(badgeView)
     
         thumbnailImageView.backgroundColor = UIColor.yellow
         thumbnailImageView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(thumbnailImageView)
 
-//        titleLabel.backgroundColor = UIColor.green
         titleLabel.font = UIFont.boldSystemFont(ofSize: 14)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(titleLabel)
-        
-//        dateLabel.backgroundColor = UIColor.red
+
         dateLabel.font = UIFont.systemFont(ofSize: 10)
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(dateLabel)
@@ -63,7 +58,7 @@ class CustomCell: UITableViewCell, UITextFieldDelegate {
         thumbnailImageView.leadingAnchor.constraint(equalTo: badgeWrapperView.leadingAnchor, constant: 30.0).isActive = true
         //equalToだとcell + 50.0になるが、equalToConstantだと50.0のみで表示される。
         thumbnailImageViewSizeConstraint = thumbnailImageView.widthAnchor.constraint(equalToConstant: 50.0)
-        //画像があるときをtrueとするとif文で分けられる。
+        // 画像があるときをtrueとするとif文で分けられる。
         thumbnailImageViewSizeConstraint.isActive = true
         thumbnailImageView.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
 
@@ -74,27 +69,27 @@ class CustomCell: UITableViewCell, UITextFieldDelegate {
         titleLabel.sizeToFit()
 
         dateLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 2.0).isActive = true
-        //dateLabelの左側はtitleLabelの左側と同じ位置なのでconstantも消す
+        // dateLabelの左側はtitleLabelの左側と同じ位置なのでconstantも消す
         dateLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor).isActive = true
         dateLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40.0).isActive = true
         dateLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10.0).isActive = true
         dateLabel.numberOfLines = 0
         dateLabel.sizeToFit()
     }
-    //22,23行目とセット
+    
+    // 22,23行目とセット
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     // 新しい関数を定義（関数の中に関数はできない）
-    func configure(title: String, date: String, image: Bool){
+    func configure(title: String, date: String, image: Bool) {
         titleLabel.text = title
         dateLabel.text = date
-        //Boolで画像があるかないかを分けて、あるときは画像サイズの50を表示
-        if image == true {
-//            thumbnailImageViewSizeConstraint.isActive = true
+        // Boolで画像があるかないかを分けて、あるときは画像サイズの50を表示
+        if image {
             thumbnailImageViewSizeConstraint.constant = 50
         } else {
-//            thumbnailImageViewSizeConstraint.isActive = false
             thumbnailImageViewSizeConstraint.constant = 0
         }
    }
