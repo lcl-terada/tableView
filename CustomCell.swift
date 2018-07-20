@@ -15,32 +15,35 @@ class CustomCell: UITableViewCell, UITextFieldDelegate {
     let thumbnailImageView = UIImageView(image: nil)
     let badgeView = UIView()
     let badgeWrapperView = UIView()
+    let button = UIButton()
     
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         //　背景色の設定
-        badgeWrapperView.backgroundColor = UIColor.cyan
+//        badgeWrapperView.backgroundColor = UIColor.cyan
         // trueだとコンフリクトしてしまう
         badgeWrapperView.translatesAutoresizingMaskIntoConstraints = false
         // 自分自身に対してbadgeWrapperViewを追加する
         self.addSubview(badgeWrapperView)
 
-        badgeView.backgroundColor = UIColor.brown
+        badgeView.backgroundColor = UIColor.blue
         badgeView.translatesAutoresizingMaskIntoConstraints = false
         //badgeWrapperViewに対してbadgeViewを追加する
         badgeWrapperView.addSubview(badgeView)
     
-        thumbnailImageView.backgroundColor = UIColor.yellow
+//        thumbnailImageView.backgroundColor = UIColor.yellow
         thumbnailImageView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(thumbnailImageView)
 
-        titleLabel.backgroundColor = UIColor.green
+//        titleLabel.backgroundColor = UIColor.green
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 14)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(titleLabel)
         
-        dateLabel.backgroundColor = UIColor.red
+//        dateLabel.backgroundColor = UIColor.red
+        dateLabel.font = UIFont.systemFont(ofSize: 10)
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(dateLabel)
         
@@ -53,6 +56,7 @@ class CustomCell: UITableViewCell, UITextFieldDelegate {
         badgeView.centerYAnchor.constraint(equalTo: badgeWrapperView.centerYAnchor).isActive = true
         badgeView.widthAnchor.constraint(equalToConstant: 10.0).isActive = true
         badgeView.heightAnchor.constraint(equalToConstant: 10.0).isActive = true
+        badgeView.layer.cornerRadius = 5.0
         
         thumbnailImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         thumbnailImageView.leadingAnchor.constraint(equalTo: badgeWrapperView.leadingAnchor, constant: 30.0).isActive = true
@@ -68,7 +72,7 @@ class CustomCell: UITableViewCell, UITextFieldDelegate {
         titleLabel.numberOfLines = 0
         titleLabel.sizeToFit()
 
-        dateLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 0.0).isActive = true
+        dateLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 2.0).isActive = true
         dateLabel.leadingAnchor.constraint(equalTo: thumbnailImageView.trailingAnchor, constant: 5.0).isActive = true
         dateLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40.0).isActive = true
         dateLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10.0).isActive = true
