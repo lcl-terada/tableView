@@ -16,6 +16,7 @@ class CustomCell: UITableViewCell, UITextFieldDelegate {
     let badgeView = UIView()
     let badgeWrapperView = UIView()
     
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -61,7 +62,7 @@ class CustomCell: UITableViewCell, UITextFieldDelegate {
 
         titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10.0).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: thumbnailImageView.trailingAnchor, constant: 5.0).isActive = true
-        titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10.0).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40.0).isActive = true
         // この文を消すことによって一つのセルに２つの文が入る
 //        titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10.0).isActive = true
         titleLabel.numberOfLines = 0
@@ -69,7 +70,7 @@ class CustomCell: UITableViewCell, UITextFieldDelegate {
 
         dateLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 0.0).isActive = true
         dateLabel.leadingAnchor.constraint(equalTo: thumbnailImageView.trailingAnchor, constant: 5.0).isActive = true
-        dateLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10.0).isActive = true
+        dateLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40.0).isActive = true
         dateLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10.0).isActive = true
         dateLabel.numberOfLines = 0
         dateLabel.sizeToFit()

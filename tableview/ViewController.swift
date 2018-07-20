@@ -15,7 +15,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         (title: "アップデートのお知らせ ver2.7閲覧履歴を追加しました", date: "2018/06/19"),
         (title:"【プレゼントキャンペーン実施中】アンケートに答えて高速バス乗車便利グッズをもらおう！", date: "2017/09/06"),
         (title:"【ニュース】［画像有り+シェア有り］JRバス関東　高速バス指定席乗車券にQRコード添付でスムーズな乗車が可能に", date: "2016/06/20"),
-        (title: "アップロードしていただき、ありがとうございます", date: "高速バス比較開発チーム")
+        (title: "アプリをアップロードしていただき、ありがとうございます", date: "高速バス比較開発チーム")
     ]
 
     override func viewDidLoad() {
@@ -59,6 +59,8 @@ class ViewController: UIViewController, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as! CustomCell
         // items内にあるtitleとdateを順に出す
         cell.configure(title: items[indexPath.row].title, date: items[indexPath.row].date)
+        
+        cell.accessoryType = .disclosureIndicator
         
         cell.layoutIfNeeded()
         return cell
