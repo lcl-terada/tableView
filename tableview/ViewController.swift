@@ -11,11 +11,11 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource {
     
     var items = [
-        (title: "応募受付8/6まで！書籍【全国 高速バスの不思議と謎】プレゼントのご案内", date: "2018/07/19"),
-        (title: "アップデートのお知らせ ver2.7閲覧履歴を追加しました", date: "2018/06/19"),
-        (title:"【プレゼントキャンペーン実施中】アンケートに答えて高速バス乗車便利グッズをもらおう！", date: "2017/09/06"),
-        (title:"【ニュース】[画像有り+シェア有り]JRバス関東　高速バス指定席乗車券にQRコード添付でスムーズな乗車が可能に", date: "2016/06/20"),
-        (title: "アプリをアップロードしていただき、ありがとうございます", date: "高速バス比較開発チーム")
+        (title: "応募受付8/6まで！書籍【全国 高速バスの不思議と謎】プレゼントのご案内", date: "2018/07/19", image: false),
+        (title: "アップデートのお知らせ ver2.7閲覧履歴を追加しました", date: "2018/06/19", image: false),
+        (title:"【プレゼントキャンペーン実施中】アンケートに答えて高速バス乗車便利グッズをもらおう！", date: "2017/09/06", image: true),
+        (title:"【ニュース】[画像有り+シェア有り]JRバス関東　高速バス指定席乗車券にQRコード添付でスムーズな乗車が可能に", date: "2016/06/20", image: true),
+        (title: "アプリをアップロードしていただき、ありがとうございます", date: "高速バス比較開発チーム", image: false)
     ]
 
     override func viewDidLoad() {
@@ -40,8 +40,6 @@ class ViewController: UIViewController, UITableViewDataSource {
         tableView.estimatedRowHeight = 20
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.reloadData()
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -58,10 +56,8 @@ class ViewController: UIViewController, UITableViewDataSource {
         //　CustomCellを呼ぶ
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as! CustomCell
         // items内にあるtitleとdateを順に出す
-        cell.configure(title: items[indexPath.row].title, date: items[indexPath.row].date)
-        
+        cell.configure(title: items[indexPath.row].title, date: items[indexPath.row].date, image: items[indexPath.row].image)
         cell.accessoryType = .disclosureIndicator
-        
         cell.layoutIfNeeded()
         return cell
     }

@@ -34,8 +34,8 @@ class CustomCell: UITableViewCell, UITextFieldDelegate {
         badgeWrapperView.addSubview(badgeView)
     
 //        thumbnailImageView.backgroundColor = UIColor.yellow
-        thumbnailImageView.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(thumbnailImageView)
+//        thumbnailImageView.translatesAutoresizingMaskIntoConstraints = false
+//        self.addSubview(thumbnailImageView)
 
 //        titleLabel.backgroundColor = UIColor.green
         titleLabel.font = UIFont.boldSystemFont(ofSize: 14)
@@ -48,8 +48,8 @@ class CustomCell: UITableViewCell, UITextFieldDelegate {
         self.addSubview(dateLabel)
         
         badgeWrapperView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        badgeWrapperView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10.0).isActive = true
-        badgeWrapperView.widthAnchor.constraint(equalToConstant: 25.0).isActive = true
+        badgeWrapperView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        badgeWrapperView.widthAnchor.constraint(equalToConstant: 40.0).isActive = true
         badgeWrapperView.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
         
         badgeView.centerXAnchor.constraint(equalTo: badgeWrapperView.centerXAnchor).isActive = true
@@ -58,14 +58,15 @@ class CustomCell: UITableViewCell, UITextFieldDelegate {
         badgeView.heightAnchor.constraint(equalToConstant: 10.0).isActive = true
         badgeView.layer.cornerRadius = 5.0
         
-        thumbnailImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        thumbnailImageView.leadingAnchor.constraint(equalTo: badgeWrapperView.leadingAnchor, constant: 30.0).isActive = true
-        //equalToだとcell + 50.0になるが、equalToConstantだと50.0のみで表示される。
-        thumbnailImageView.widthAnchor.constraint(equalToConstant: 50.0).isActive = true
-        thumbnailImageView.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
+//        thumbnailImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+//        thumbnailImageView.leadingAnchor.constraint(equalTo: badgeWrapperView.leadingAnchor, constant: 30.0).isActive = true
+//        //equalToだとcell + 50.0になるが、equalToConstantだと50.0のみで表示される。
+//        thumbnailImageView.widthAnchor.constraint(equalToConstant: 50.0).isActive = true
+//        thumbnailImageView.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
 
         titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10.0).isActive = true
-        titleLabel.leadingAnchor.constraint(equalTo: thumbnailImageView.trailingAnchor, constant: 5.0).isActive = true
+//        titleLabel.leadingAnchor.constraint(equalTo: thumbnailImageView.trailingAnchor, constant: 5.0).isActive = true
+        titleLabel.leadingAnchor.constraint(equalTo: badgeWrapperView.trailingAnchor).isActive = true
         titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40.0).isActive = true
         // この文を消すことによって一つのセルに２つの文が入る
 //        titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10.0).isActive = true
@@ -73,7 +74,8 @@ class CustomCell: UITableViewCell, UITextFieldDelegate {
         titleLabel.sizeToFit()
 
         dateLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 2.0).isActive = true
-        dateLabel.leadingAnchor.constraint(equalTo: thumbnailImageView.trailingAnchor, constant: 5.0).isActive = true
+//        dateLabel.leadingAnchor.constraint(equalTo: thumbnailImageView.trailingAnchor, constant: 5.0).isActive = true
+        dateLabel.leadingAnchor.constraint(equalTo: badgeWrapperView.trailingAnchor).isActive = true
         dateLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40.0).isActive = true
         dateLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10.0).isActive = true
         dateLabel.numberOfLines = 0
@@ -84,10 +86,14 @@ class CustomCell: UITableViewCell, UITextFieldDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     // 新しい関数を定義（関数の中に関数はできない）
-    func configure(title: String, date: String){
-        
+    func configure(title: String, date: String, image: Bool){
         titleLabel.text = title
-        dateLabel.text = date        
+        dateLabel.text = date
+        if image == true {
+        
+        } else {
+            
+        }
     }
     
     
